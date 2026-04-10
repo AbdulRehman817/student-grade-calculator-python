@@ -2,17 +2,85 @@
 <html>
 <head>
     <title>Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .result p {
+            font-size: 16px;
+            padding: 8px;
+            background: #f9f9f9;
+            margin: 8px 0;
+            border-radius: 6px;
+        }
+
+        .grade {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .remark {
+            font-style: italic;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>📊 Final Result</h2>
+<div class="container">
 
-<p><b>Total Marks:</b> {{ total }}</p>
-<p><b>Average:</b> {{ average }}</p>
-<p><b>Grade:</b> {{ grade }}</p>
-<p><b>Remark:</b> {{ remark }}</p>
+    <h2>📊 Final Result</h2>
 
-<a href="/">🔙 Go Back</a>
+    <div class="result">
+        <p><b>Total Marks:</b> {{ total }}</p>
+        <p><b>Average:</b> {{ average }}</p>
+        <p class="grade"><b>Grade:</b> {{ grade }}</p>
+        <p class="remark"><b>Remark:</b> {{ remark }}</p>
+    </div>
+
+    <a href="/">🔙 Go Back</a>
+
+</div>
 
 </body>
 </html>
