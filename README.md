@@ -40,7 +40,7 @@ A simple Python command-line project that calculates a student's total marks, av
 ## 📂 Project Structure
 
 ```
-student-grade-calculator/
+student-grade-calculator-python/
 │
 ├── main.py
 ├── README.md
@@ -57,7 +57,7 @@ Make sure Python is installed on your system.
 Clone this repository or download the ZIP file.
 
 ```bash
-git clone https://github.com/your-username/student-grade-calculator.git
+git clone https://github.com/AbdulRehman817/student-grade-calculator-python
 ```
 
 ### Step 3: Run the Project
