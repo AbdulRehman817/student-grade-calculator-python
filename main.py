@@ -1,3 +1,7 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
 subjects = ["Math", "Science", "English", "History", "Computer Science"]
 
 def get_grade(avg):
@@ -14,33 +18,29 @@ def get_grade(avg):
     else:
         return "F", "Fail"
 
-def main():
-    total = 0
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "POST":
+        total = 0
+        marks_list = []
 
-    print("🎓 Student Grade Calculator")
-    print("-" * 30)
+        for subject in subjects:
+            marks = float(request.form[subject])
+            marks_list.append(marks)
+            total += marks
 
-    for subject in subjects:
-        while True:
-            try:
-                marks = float(input(f"Enter marks for {subject}: "))
-                if 0 <= marks <= 100:
-                    total += marks
-                    break
-                else:
-                    print("❌ Marks must be between 0 and 100.")
-            except ValueError:
-                print("❌ Invalid input! Please enter a number.")
+        average = total / len(subjects)
+        grade, remark = get_grade(average)
 
-    average = total / len(subjects)
-    grade, remark = get_grade(average)
+        return render_template(
+            "result.html",
+            total=total,
+            average=round(average, 2),
+            grade=grade,
+            remark=remark
+        )
 
-    print("\n📊 Final Result")
-    print("-" * 30)
-    print("Total Marks:", total)
-    print("Average:", round(average, 2))
-    print("Grade:", grade)
-    print("Remark:", remark)
+    return render_template("index.html", subjects=subjects)
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)

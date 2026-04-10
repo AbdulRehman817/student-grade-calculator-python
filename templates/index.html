@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+</head>
+<body>
+
+<h2>🎓 Student Grade Calculator</h2>
+
+<form method="POST">
+
+    {% for subject in subjects %}
+        <label>{{ subject }}:</label>
+        <input type="number" name="{{ subject }}" min="0" max="100" required>
+        <br><br>
+    {% endfor %}
+
+    <button type="submit">Calculate</button>
+
+</form>
+
+</body>
+</html>
